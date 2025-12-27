@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: interview-baseline-001
+      author: harish
+      preConditions:
+        - onFail: MARK_RAN
+        - tableExists:
+            tableName: interview
+      changes:
+        - tagDatabase:
+            tag: interview-baseline

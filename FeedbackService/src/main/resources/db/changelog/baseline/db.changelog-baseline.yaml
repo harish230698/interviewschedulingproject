@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: feedback-baseline-001
+      author: harish
+      preConditions:
+        - onFail: MARK_RAN
+        - tableExists:
+            tableName: feedback
+      changes:
+        - tagDatabase:
+            tag: feedback-baseline
