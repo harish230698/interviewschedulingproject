@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
+        
+    <changeSet id="add-columns-interview-search-view" author="harish">
+
+        <preConditions onFail="MARK_RAN" onError="HALT">
+            <tableExists tableName="interview_search_view"/>
+        </preConditions>
+
+        <addColumn tableName="interview_search_view">
+            <column name="candidate_email" type="varchar(255)"/>
+            <column name="interviewer_email" type="varchar(255)"/>
+            <column name="interview_mode" type="varchar(20)"/>
+            <column name="interview_status" type="varchar(20)"/>
+            <column name="created_date"
+                    type="datetime"
+                    defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="interview_search_view" columnName="candidate_email"/>
+            <dropColumn tableName="interview_search_view" columnName="interviewer_email"/>
+            <dropColumn tableName="interview_search_view" columnName="interview_mode"/>
+            <dropColumn tableName="interview_search_view" columnName="interview_status"/>
+            <dropColumn tableName="interview_search_view" columnName="created_date"/>
+        </rollback>
+
+    </changeSet>
+
+</databaseChangeLog>

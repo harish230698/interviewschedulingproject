@@ -27,7 +27,7 @@ public class InterviewNotificationListener {
 	private final CandidateClient candidateClient;
     private final InterviewerClient interviewerClient;
     private final NotificationClient notificationClient;
-    private final Logger log = Logger.getLogger(InterviewNotificationListener.class.getName());;
+    private final Logger log = Logger.getLogger(InterviewNotificationListener.class.getName());
     
     @Async
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)

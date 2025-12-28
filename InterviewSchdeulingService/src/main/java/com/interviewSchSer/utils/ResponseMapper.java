@@ -32,7 +32,9 @@ public static InterviewSearchViewResponse enityToSearchViewResponse(InterviewSea
 				entity.getInterviewerId(),
 				entity.getInterviewerName(),
 				entity.getScheduledTime(),
-				entity.getStatus()
+				entity.getStatus(),
+				entity.getCandidateEmail(),
+				entity.getInterviewerEmail()
 				);
 		
 		return resp;

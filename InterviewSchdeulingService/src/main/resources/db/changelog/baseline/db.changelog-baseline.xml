@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+          http://www.liquibase.org/xml/ns/dbchangelog
+          https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
+	<changeSet id="interview-baseline-001" author="harish">
+		<preConditions onFail="MARK_RAN">
+			<tableExists tableName="interview"/>
+		</preConditions>
+		<tagDatabase tag="interview-baseline"/>
+	</changeSet>
+	
+	<changeSet id="interview-search-view-baseline-001" author="harish">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="interview_search_view"/>
+        </preConditions>
+        <tagDatabase tag="interview-search-view-baseline"/>
+    </changeSet>
+</databaseChangeLog>

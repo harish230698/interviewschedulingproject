@@ -12,6 +12,7 @@ public record InterviewSearchViewResponse(
 		UUID interviewerId,
 		String interviewerName,
 		LocalDateTime scheudledTime,
-		InterviewStatus status) {
-
+		InterviewStatus status,
+		String candidateEmail,
+		String interviewEmail) {
 }

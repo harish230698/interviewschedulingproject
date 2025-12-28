@@ -49,6 +49,7 @@ public class InterviewServiceImp implements InterviewService{
 		  interview.setInterviewerId(interviewerId);
 		  interview.setScheduledTime(scheduledTime);
 		  interview.setMode(mode);
+		  interview.setStatus(InterviewStatus.SCHEDULED);
 		  
 		  interviewRepository.saveAndFlush(interview);
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
+
+    <changeSet id="add-created-date-feedback" author="harish">
+
+        <preConditions onFail="MARK_RAN" onError="HALT">
+            <tableExists tableName="feedback"/>
+        </preConditions>
+
+        <addColumn tableName="feedback">
+            <column name="created_date"
+                    type="datetime"
+                    defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="feedback" columnName="created_date"/>
+        </rollback>
+
+    </changeSet>
+
+</databaseChangeLog>

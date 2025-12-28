@@ -32,6 +32,12 @@ public class InterviewSearchSpecification {
                             "%" + criteria.candidateName().toLowerCase() + "%")
                 );
             }
+            
+            if(criteria.interviewId() !=null) {
+            	predicates.add(
+            			cb.equal(root.get("interviewId"), criteria.interviewId())
+            	);
+            }
 
             return cb.and(predicates.toArray(new Predicate[0]));
         };

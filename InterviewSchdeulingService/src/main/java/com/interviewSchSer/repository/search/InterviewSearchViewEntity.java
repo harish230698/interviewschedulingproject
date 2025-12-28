@@ -43,5 +43,11 @@ public class InterviewSearchViewEntity {
   	
   	@Enumerated(EnumType.STRING)
     private InterviewStatus status;
+  	
+  	@Column(name = "candidate_email")
+  	private String candidateEmail;
+  	
+  	@Column(name = "interviewer_email")
+  	private String interviewerEmail;
 
 }
